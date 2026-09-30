@@ -58,7 +58,7 @@ Sie spricht das analysierte Protokoll direkt, läuft auf einem Rechner im
 WLAN der Kamera (Mac, Linux, Raspberry Pi) und wird im Browser bedient.
 Details: [app/README.md](app/README.md).
 
-![Soulear lokal mit der echten Kamera: stabilisiertes Livebild, Lage & Sensoren, Fotos und Geräteinfo](docs/screenshot.png)
+![Soulear lokal mit der echten Kamera: stabilisiertes Livebild einer Beschriftung, daneben der Tab Lage mit Drehung, Neigung und Sensor-Rohwerten](docs/screenshot.png)
 
 ```
 Kamera ──UDP──▶ Backend (Node.js/TypeScript) ──HTTP──▶ Frontend (React + MUI) im Browser
@@ -76,7 +76,10 @@ Kamera ──UDP──▶ Backend (Node.js/TypeScript) ──HTTP──▶ Front
   Mitschnitte
 
 **Frontend** ([app/web](app/web/src)) – React, TypeScript, MUI, Vite
-- Großes Livebild, Foto per Klick, LED an/aus, Galerie mit Download/Löschen
+- Livebild füllt am Desktop die ganze Fensterhöhe; Bedienleiste mit Foto,
+  LED an/aus und Stabilisieren direkt darunter
+- Seitenleiste mit Tabs: Lage, Fotos (Galerie mit Download/Löschen), Gerät –
+  kein Scrollen der Seite nötig; am Handy alles untereinander mit großen Knöpfen
 - Statusleiste: Verbindung, Bildrate, Akku (inkl. Ladezustand)
 - Lage & Sensoren: Drehung/Neigung mit Lageanzeige, Rohwerte, abschaltbare
   Bildstabilisierung (Richtung und Versatz einstellbar)

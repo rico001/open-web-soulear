@@ -3,7 +3,7 @@
 Gedacht vor allem als **Makro-/Inspektionskamera für Platinen und
 Lötstellen** am Rechner (siehe [Motivation](../README.md#motivation)).
 
-![Soulear lokal mit der echten Kamera: stabilisiertes Livebild, Lage & Sensoren, Fotos und Geräteinfo](../docs/screenshot.png)
+![Soulear lokal mit der echten Kamera: stabilisiertes Livebild einer Beschriftung, daneben der Tab Lage mit Drehung, Neigung und Sensor-Rohwerten](../docs/screenshot.png)
 
 Ersatz für die Hersteller-App: ein **Node.js/TypeScript-Backend**, das im
 WLAN der Kamera läuft (Laptop, Raspberry Pi), und ein **React-Frontend** im
@@ -185,7 +185,11 @@ app/
 │   ├── camera/             – Treiber: types.ts (Basis), mock, replay, soulear,
 │   │                         suear-protocol.ts (Nachrichten, Chunks, Frame-Assembler)
 │   └── tools/              – pcap.ts, pcap-analyze.ts (CLI), fake-camera.ts
-└── web/src/                – React + MUI: App.tsx, sensors.tsx, api.ts, theme.ts
+└── web/src/                – React + MUI
+    ├── App.tsx             – Layout (Desktop: volle Fensterhöhe, Seitenleiste mit Tabs; mobil untereinander)
+    ├── hooks.ts            – Sensor-Stream, Stabilisierung, gespeicherte Einstellungen
+    ├── api.ts, theme.ts
+    └── components/         – TopBar, LiveView, Controls, SensorPanel, PhotosPanel, DevicePanel
 ```
 
 ## Einschränkungen

@@ -1,0 +1,10 @@
+apk/
+.DS_Store
+*.pcap
+*.pcapng
+
+# app/
+node_modules/
+dist/
+app/media/
+app/captures/

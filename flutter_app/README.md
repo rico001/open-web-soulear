@@ -76,6 +76,8 @@ lib/
 android/app/src/main/kotlin/…/MainActivity.kt – WLAN-Bindung
 test/                         – protocol_test.dart, layout_test.dart
 tool/probe.dart               – Kommandozeilen-Test des Clients
+tool/make_icon.py             – zeichnet das App-Icon (Stift, flach) → assets/icon/
+assets/icon/                  – Icon-Quellen; `dart run flutter_launcher_icons` erzeugt alle Größen
 ```
 
 Lizenz: GPL-2.0, siehe [../LICENSE](../LICENSE).

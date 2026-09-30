@@ -196,9 +196,9 @@ app/
 
 - Das Gerät mit dem Backend muss im **Kamera-WLAN** sein; darin gibt es in
   der Regel kein Internet.
-- Auf dem Handy läuft das Backend nicht. Dafür bräuchte es später eine
-  Capacitor/React-Native-Hülle mit UDP-Plugin; der Treiber-Code lässt sich
-  übernehmen.
+- Auf dem Handy läuft das Backend nicht – dafür gibt es die native
+  Handy-App in [../flutter_app](../flutter_app/README.md), die direkt mit der
+  Kamera spricht.
 - Videoaufnahme fehlt noch (nächster Schritt: Frames als MJPEG/AVI mitschreiben).
 
 ## Quellen / Lizenz

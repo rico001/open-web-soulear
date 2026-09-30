@@ -95,6 +95,22 @@ npm run dev                # http://localhost:5173
 DRIVER=mock npm run dev    # ohne Kamera ausprobieren
 ```
 
+### Handy-App (Flutter)
+
+Zusätzlich gibt es eine native App für Android (iOS vorbereitet) in
+[flutter_app/](flutter_app/README.md). Sie spricht **direkt** mit der Kamera –
+kein Rechner, kein Backend nötig. Gleicher Funktionsumfang: Livebild, Fotos
+(auch in die Galerie), LED, Akku, Lagesensor mit Stabilisierung. Getestet mit
+der echten Kamera auf Android 16.
+
+<img src="docs/screenshot-android.png" alt="Soulear lokal als Android-App mit der echten Kamera: stabilisiertes Livebild, Bedienknöpfe und Tab Lage mit Sensorwerten" width="300">
+
+```bash
+cd flutter_app
+flutter build apk --release --split-per-abi --target-platform android-arm64
+adb install build/app/outputs/flutter-apk/app-arm64-v8a-release.apk
+```
+
 ## Getestete Hardware
 
 | Gerät | Kennung laut Kamera | Ergebnis |
@@ -112,6 +128,7 @@ Erfahrungsberichte willkommen.
 |----------|--------|
 | **[docs/README-setup.md](docs/README-setup.md)** | Setup: APK entpacken/dekompilieren, Installation, Mitschnitt von Kamera- und Cloud-Verkehr. |
 | **[docs/README-statische-analyse.md](docs/README-statische-analyse.md)** | Erkenntnisse aus dem dekompilierten Code: Architektur, Kameraprotokoll, Cloud-Aufrufe, offene Fragen. |
+| **[flutter_app/README.md](flutter_app/README.md)** | Handy-App (Flutter/Dart) für Android/iOS: spricht direkt mit der Kamera. |
 | **[app/README.md](app/README.md)** | Eigene Web-App (Node/TS-Backend + React/MUI) als Ersatz für die Hersteller-App: Bedienung, Protokoll, Tests ohne Hardware, pcap-Werkzeug. |
 | **[tools/README.md](tools/README.md)** | Anleitung zu den Skripten. |
 
@@ -132,13 +149,15 @@ android-app-analyse/
 ├── docs/
 │   ├── README-setup.md                – Analyse-Setup (Dekompilieren, Gerät, Mitschnitt)
 │   ├── README-statische-analyse.md    – Erkenntnisse aus dem Code
-│   └── screenshot.png                 – Screenshot der App
+│   ├── screenshot.png                 – Screenshot der Web-App
+│   └── screenshot-android.png         – Screenshot der Handy-App
 ├── app/                               – eigene Web-App (server/ + web/), siehe app/README.md
+├── flutter_app/                       – Handy-App (Flutter), siehe flutter_app/README.md
 ├── tools/
 │   ├── README.md                      – Anleitung zu den Skripten
 │   ├── decompile.sh                   – XAPK entpacken, jadx + apktool
 │   └── install-ca.sh                  – mitmproxy-CA als System-Cert (Emulator/Root)
-└── apk/                               – nicht versioniert
+└── apk/                               – nicht im Repo (.gitignore): eigene XAPK hier ggf ablegen
     ├── com.i4season.bkCamera_soulear_1.0.120.xapk
     └── soulear/                       – Splits, jadx-out/, apktool-out/, native/
 ```
